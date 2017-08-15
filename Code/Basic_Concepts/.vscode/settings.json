@@ -1,0 +1,18 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "python.pythonPath": "d:/01_Programming/02_Builds/Python36/python3",
+    "python.formatting.formatOnSave": false,
+    "python.formatting.provider": "yapf",
+    "python.unitTest.unittestArgs": [
+        "-v",
+        "-s",
+        ".\\MPython",
+        "-p",
+        "*test.py"
+    ],
+    "python.unitTest.unittestEnabled": false,
+    "python.unitTest.promptToConfigure": false,
+    "python.unitTest.pyTestEnabled": false,
+    "python.unitTest.nosetestsEnabled": false,
+    "python.linting.pylintEnabled": false
+}
