@@ -35,27 +35,33 @@ stdout_handle = windll.kernel32.GetStdHandle(-11)
 SetConsoleTextAttribute = windll.kernel32.SetConsoleTextAttribute
 
 if __name__ == '__main__':
-    print("===== getting data.hehe =====")
 
-    # get rec
-    print("===== REC =====")
-    res = get(COIN_MARKET_CAP_URL_REC)
-    data = json.loads(res.read())
-    printData(data[0]['name'], data[0]['price_usd'])
+    count = -1
+    while 1:
+        count += 1
+        print("===== getting data.hehe ===== ", count)
+        # get rec
+        print("===== REC =====")
+        res = get(COIN_MARKET_CAP_URL_REC)
+        data = json.loads(res.read())
+        printData(data[0]['name'], data[0]['price_usd'])
 
-    # get btc
-    print("===== BTC =====")
-    res = get(COIN_MARKET_CAP_URL_BTC)
-    data = json.loads(res.read())
-    printData(data[0]['name'], data[0]['price_usd'])
+        # get btc
+        print("===== BTC =====")
+        res = get(COIN_MARKET_CAP_URL_BTC)
+        data = json.loads(res.read())
+        printData(data[0]['name'], data[0]['price_usd'])
 
-    # get bcc
-    print("===== BCC =====")
-    res = get(COIN_MARKET_CAP_URL_BCC)
-    data = json.loads(res.read())
-    printData(data[0]['name'], data[0]['price_usd'])
+        # get bcc
+        print("===== BCC =====")
+        res = get(COIN_MARKET_CAP_URL_BCC)
+        data = json.loads(res.read())
+        printData(data[0]['name'], data[0]['price_usd'])
 
 
-    ## done
-    print("===== xong.hehe =====")
-    wait = input("PRESS ENTER TO EXIT.")
+        ## done
+        print("===== xong.hehe =====")
+        wait = input("PRESS 'E' TO EXIT.. ANY KEY TO CONTINUE..")
+
+        if wait == 'E':
+            break
