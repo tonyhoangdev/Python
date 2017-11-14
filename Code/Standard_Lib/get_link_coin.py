@@ -17,6 +17,7 @@ WORLD_COIN_INDEX_URL = "https://www.worldcoinindex.com/widget/renderWidget?size=
 COIN_MARKET_CAP_URL_REC = "https://api.coinmarketcap.com/v1/ticker/regalcoin"
 COIN_MARKET_CAP_URL_BTC = "https://api.coinmarketcap.com/v1/ticker/bitcoin"
 COIN_MARKET_CAP_URL_BCC = "https://api.coinmarketcap.com/v1/ticker/bitconnect"
+COIN_MARKET_CAP_URL_ETH = "https://api.coinmarketcap.com/v1/ticker/ethereum"
 
 def get(uri):
     req = Request(uri)
@@ -40,11 +41,6 @@ if __name__ == '__main__':
     while 1:
         count += 1
         print("===== getting data.hehe ===== ", count)
-        # get rec
-        print("===== REC =====")
-        res = get(COIN_MARKET_CAP_URL_REC)
-        data = json.loads(res.read())
-        printData(data[0]['name'], data[0]['price_usd'])
 
         # get btc
         print("===== BTC =====")
@@ -55,6 +51,18 @@ if __name__ == '__main__':
         # get bcc
         print("===== BCC =====")
         res = get(COIN_MARKET_CAP_URL_BCC)
+        data = json.loads(res.read())
+        printData(data[0]['name'], data[0]['price_usd'])
+
+        # get rec
+        print("===== REC =====")
+        res = get(COIN_MARKET_CAP_URL_REC)
+        data = json.loads(res.read())
+        printData(data[0]['name'], data[0]['price_usd'])
+
+        # get eth
+        print("===== ETH =====")
+        res = get(COIN_MARKET_CAP_URL_ETH)
         data = json.loads(res.read())
         printData(data[0]['name'], data[0]['price_usd'])
 
