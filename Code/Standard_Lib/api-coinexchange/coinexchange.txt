@@ -1,0 +1,62 @@
+
+curl -X GET https://www.coinexchange.io/api/v1/getmarkets -H "accept: application/json"
+
+GET https://www.coinexchange.io/api/v1/getmarketsummaries
+
+GET https://www.coinexchange.io/api/v1/getmarketsummary?market_id=422
+
+GET https://www.coinexchange.io/api/v1/getorderbook?market_id=18
+
+GET https://www.coinexchange.io/api/v1/getcurrencies
+
+GET https://www.coinexchange.io/api/v1/getcurrency?currency_id=1
+GET https://www.coinexchange.io/api/v1/getcurrency?ticker_code=BTC
+
+
+
+
+// Work
+curl -X GET "https://api.hitbtc.com/api/2/public/symbol" -H "accept: application/json"
+// not
+curl -X GET "http://api.hitbtc.com/api/2/public/symbol" -H "accept: application/json"
+
+// Work
+curl -X GET "https://api.hitbtc.com/api/2/public/symbol/BCCBTC" -H "accept: application/json"
+// not
+curl -X GET "http://api.hitbtc.com/api/2/public/symbol/BCCBTC" -H "accept: application/json"
+
+=======================================
+// Work
+curl -X GET "https://api.hitbtc.com/api/2/public/currency" -H "accept: application/json"
+// not
+curl -X GET "http://api.hitbtc.com/api/2/public/currency" -H "accept: application/json"
+
+// Work
+curl -X GET "https://api.hitbtc.com/api/2/public/currency/BCC" -H "accept: application/json"
+// not
+curl -X GET "http://api.hitbtc.com/api/2/public/currency/BCC" -H "accept: application/json"
+
+=======================================
+// Work
+curl -X GET "https://api.hitbtc.com/api/2/public/ticker" -H "accept: application/json"
+// not
+curl -X GET "http://api.hitbtc.com/api/2/public/ticker" -H "accept: application/json"
+
+// Work
+curl -X GET "https://api.hitbtc.com/api/2/public/ticker/BCCBTC" -H "accept: application/json"
+// not
+curl -X GET "http://api.hitbtc.com/api/2/public/ticker/BCCBTC" -H "accept: application/json"
+
+=======================================
+curl -X GET "https://api.hitbtc.com/api/2/public/trades/BCCBTC?sort=DESC&by=timestamp&limit=100" -H "accept: application/json"
+
+
+=======================================
+curl -X GET "https://api.hitbtc.com/api/2/public/orderbook/BCCBTC?limit=20" -H "accept: application/json"
+
+
+=======================================
+curl -X GET "https://api.hitbtc.com/api/2/public/candles/BCCBTC?limit=100&period=M30" -H "accept: application/json"
+
+=======================================
+curl -X GET "https://api.hitbtc.com/api/2/order?symbol=BCCBTC" -H "accept: application/json"

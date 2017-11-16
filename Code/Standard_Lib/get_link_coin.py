@@ -20,6 +20,7 @@ COIN_MARKET_CAP_URL_REC = "https://api.coinmarketcap.com/v1/ticker/regalcoin"
 COIN_MARKET_CAP_URL_BTC = "https://api.coinmarketcap.com/v1/ticker/bitcoin"
 COIN_MARKET_CAP_URL_BCC = "https://api.coinmarketcap.com/v1/ticker/bitconnect"
 COIN_MARKET_CAP_URL_ETH = "https://api.coinmarketcap.com/v1/ticker/ethereum"
+COIN_MARKET_CAP_URL_BCH = "https://api.coinmarketcap.com/v1/ticker/bitcoin-cash"
 
 def get(uri):
     req = Request(uri)
@@ -51,6 +52,12 @@ if __name__ == '__main__':
         # get btc
         print("===== BTC =====")
         res = get(COIN_MARKET_CAP_URL_BTC)
+        data = json.loads(res.read())
+        printData(data[0]['name'], data[0]['price_usd'])
+
+        # get bch
+        print("===== BCH =====")
+        res = get(COIN_MARKET_CAP_URL_BCH)
         data = json.loads(res.read())
         printData(data[0]['name'], data[0]['price_usd'])
 

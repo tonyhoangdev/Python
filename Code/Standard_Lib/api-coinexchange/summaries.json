@@ -1,0 +1,19 @@
+{
+    "success": "1",
+    "request": "/api/v1/getmarket",
+    "message": "",
+    "result": {
+        "MarketID": "540",
+        "LastPrice": "0.00740679",
+        "Change": "-5.04",
+        "HighPrice": "0.00799990",
+        "LowPrice": "0.00725000",
+        "Volume": "323.80489804",
+        "BTCVolume": "323.80489804",
+        "TradeCount": "4927",
+        "BidPrice": "0.00740679",
+        "AskPrice": "0.00749196",
+        "BuyOrderCount": "561",
+        "SellOrderCount": "2159"
+    }
+}
