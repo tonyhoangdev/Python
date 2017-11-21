@@ -1,0 +1,11 @@
+To setup:
+- cd to package folder
+- [python|pyhton3] setup.py install
+
+- <python3> -m pip install <pysftp>
+
+1. pysftp
+- python3 -m pip install pysftp
+
+2. XlsxWriter
+- python3 -m pip install XlsxWriter
