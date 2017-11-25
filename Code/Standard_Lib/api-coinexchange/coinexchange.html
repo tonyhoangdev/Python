@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WebSocket demo</title>
+        <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px;
+        }
+        th {
+            text-align: left;
+        }
+        </style>
+
+        <!-- <script src="./js/jquery.color.js" type="text/javascript"></script> -->
+        <!-- <script src="./js/perfect-scrollbar.jquery.js" type="text/javascript"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+        <ul id="status" class="list-unstyled">
+
+             </ul>
+        <ul id="" class="list-unstyled">
+        <table>
+            <tr>
+                <th>Market</th>
+                <th>Price</th>
+                <th>Volume</th>
+                <th>Change</th>
+            </tr>
+            <tr id="id_540">
+                <td><span id="market">REC/BTC</span></td>
+                <td><span id="price" >0</span></td>
+                <td><span id="volume">0</span></td>
+                <td><span id="change">0</span></td>
+            </tr>
+            <tr id="id_592">
+                <td><span id="market">BTE/BTC</span></td>
+                <td><span id="price" >0</span></td>
+                <td><span id="volume">0</span></td>
+                <td><span id="change">0</span></td>
+            </tr>
+            <tr id="id_87">
+                <td><span id="market">ETH/BTC</span></td>
+                <td><span id="price" >0</span></td>
+                <td><span id="volume">0</span></td>
+                <td><span id="change">0</span></td>
+            </tr>
+            <tr id="id_422">
+                <td><span id="market">BCH/BTC</span></td>
+                <td><span id="price" >0</span></td>
+                <td><span id="volume">0</span></td>
+                <td><span id="change">0</span></td>
+            </tr>
+            <tr id="id_433">
+                <td><span id="market">VISIO/BTC</span></td>
+                <td><span id="price" >0</span></td>
+                <td><span id="volume">0</span></td>
+                <td><span id="change">0</span></td>
+            </tr>
+        </table>
+</ul>
+                <ul id="log_div" class="list-unstyled">
+
+             </ul>
+
+
+    </div>
+
+
+        <script>
+
+            // var ws = new WebSocket("wss://wss.coinexchange.io:3001/sideprices"),
+            var ws = new WebSocket("wss://wss.coinexchange.io:3001/sideprices"),
+                messages = document.createElement('ul');
+
+            var markets = [540, 592, 87, 422, 433 ]
+            var dict = {
+                "540": "REC/BTC",
+                "592": "BTE/BTC" ,
+                "87": "ETH/BTC" ,
+                "422": "BCH/BTC" ,
+                "433": "VISIO/BTC"
+            };
+
+
+            function appendLog(message) {
+              var messages2 =  document.getElementById('status');
+              var messageElem = document.createElement("li");
+
+              messageElem.innerHTML = "<h2><span class=\"label label-success\">*</span>&nbsp;&nbsp;" + message + "</h2>";
+              messages2.appendChild(messageElem);
+            }
+
+
+            ws.onerror = function(e) {
+                console.log("WebSocket failure, error", e);
+            }
+
+            ws.onclose = function(e) {
+                appendLog("Connection closed");
+
+                console.log(e.reason + " " + e.code);
+                console.log("Connection closed");
+            }
+
+            function disconnect() {
+              ws.close(1000, "WebSocket connection closed");
+            }
+
+            // Connection opened
+            ws.onopen = function(e) {
+                appendLog("Connection opened");
+                console.log('Connection to server opened');
+
+                for (var key in dict)
+                {
+                    console.log(key)
+                }
+            }
+
+            // Listen for messages
+            ws.onmessage = function (event) {
+                console.log('Message from server ', event.data);
+
+                var data = JSON.parse(event.data)
+
+                if (dict.hasOwnProperty(data.market_id))
+                {
+                    var thediv = 'id_' + data.market_id
+                    var last_price = $('#' + thediv + ' #price').text()
+                    var last_volume = $('#' + thediv + ' #volume').text()
+
+                    console.log('last_price' + last_price)
+                    console.log('last_volume' + last_volume)
+
+                    // $('#' + thediv+' #market').html(dict[Number(data.market_id)])
+                    $('#' + thediv+' #volume').html(data.volume)
+                    $('#' + thediv+' #change').html(data.perc_change)
+                    $('#' + thediv+' #price').html(data.price)
+
+                    if(last_price < data.price){
+                        $('#'+thediv).animate( { backgroundColor: "#5cb85c" }, 1 ).animate( { backgroundColor: "#ffffff" }, 3000 );
+                    }
+                    if(last_price > data.price){
+                       $('#'+thediv).animate( { backgroundColor: "#d9534f" }, 1 ).animate( { backgroundColor: "#ffffff" }, 3000 );
+                    }
+                    if(last_price == data.price && last_volume != Number(data.volume).toFixed(3)){
+                        $('#'+thediv).animate( { backgroundColor: "#7cb5ec" }, 1 ).animate( { backgroundColor: "#ffffff" }, 3000 );
+                    }
+
+                    $('#'+thediv+' #price').html(data.price);
+
+
+                    var messages = document.getElementsByTagName('ul')[0],
+                        message = document.createElement('li'),
+
+                        content = document.createTextNode("market_id: " + dict[Number(data.market_id)] + " <--> price: " + data.price + " <--> volume: " + data.volume + " <--> perc_change:" + data.perc_change + " <--> type:" + data.type);
+
+                    message.appendChild(content);
+                    messages.appendChild(message);
+                }
+                else {
+                    console.log("no have" + data.market_id)
+                }
+            };
+
+            document.getElementById("log_div").appendChild(messages)
+
+        </script>
+
+
+    </body>
+</html>
