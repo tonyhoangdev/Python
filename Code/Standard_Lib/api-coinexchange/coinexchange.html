@@ -3,37 +3,44 @@
     <head>
         <title>WebSocket demo</title>
         <style>
-        table, th, td {
+        table,th, td  {
+
             border: 1px solid black;
             border-collapse: collapse;
         }
         th, td {
+
             padding: 5px;
-        }
-        th {
             text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #eeeeee;
+        }
+        table#tb01 {
+            width: 50%;
         }
         </style>
 
-        <script src="https://www.coinexchange.io/js/jquery.color.js" type="text/javascript"></script>
-        <script src="https://www.coinexchange.io/js/perfect-scrollbar.jquery.js" type="text/javascript"></script>
+        <script src="https://www.coinexchange.io/js/jquery.color.js"></script>
+        <script src="https://www.coinexchange.io/js/perfect-scrollbar.jquery.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="https://www.coinexchange.io/css/animate.css">
 
     </head>
     <body>
 
         <div class="container">
         <ul class="list-unstyled">
-            <li><h2><span class="label label-success">*</span><span  id="status">&nbsp;&nbsp;Status:</span></h2></li>
+            <li><h2><span id="status_icon" class="label label-success">*</span><span  id="status">&nbsp;&nbsp;Status:</span></h2></li>
         </ul>
         <ul class="list-unstyled">
             <li><span id="status_last_time">Time:</span></li>
         </ul>
         <ul id="" class="list-unstyled">
-        <table>
+        <table id="tb01">
             <tr>
                 <th>Market</th>
                 <th>Price</th>
@@ -71,7 +78,6 @@
                 <td><span id="change">0</span></td>
             </tr>
         </table>
-</ul>
                 <ul id="log_div" class="list-unstyled">
 
              </ul>
@@ -120,6 +126,7 @@
 
             ws.onclose = function(e) {
                 appendLog("Connection closed");
+                $('#status_icon').removeClass("label-success").addClass("label-danger");
 
                 console.log(e.reason + " " + e.code);
                 console.log("Connection closed");
@@ -129,11 +136,62 @@
               ws.close(1000, "WebSocket connection closed");
             }
 
+function httpGet(theUrl)
+{
+    var client = new HttpClient();
+    client.get(theUrl, function(response) {
+        return response
+    });
+}
+
+var HttpClient = function() {
+    this.get = function(aUrl, aCallback) {
+        var anHttpRequest = new XMLHttpRequest();
+        anHttpRequest.onreadystatechange = function() {
+            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                aCallback(anHttpRequest.responseText);
+        }
+
+        anHttpRequest.open( "GET", aUrl, true );
+        anHttpRequest.setRequestHeader( 'Access-Control-Allow-Origin', '*');
+
+anHttpRequest.setRequestHeader( 'Content-Type', 'application/json' );
+        anHttpRequest.withCredentials = false;
+        anHttpRequest.send(null);
+    }
+}
+
+
+            function httpGetAsync(url, callback) {
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.onreadystatechange = function() {
+                    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                        callback(xmlHttp.responseText);
+                }
+                xmlHttp.open("GET", url, true);
+                xmlHttp.send(null);
+            }
             // Connection opened
             ws.onopen = function(e) {
                 appendLog("Connection opened");
+                $('#status_icon').removeClass("label-danger").addClass("label-success");
+
+
                 console.log('Connection to server opened');
                 $('#status_last_time').html("Last Time Updated: " + formatDate(new Date()));
+
+
+var client = new HttpClient();
+client.get('https://www.coinexchange.io/api/v1/getmarketsummary?market_id=' + 540, function(response) {
+// client.get("https://ipinfo.io/json", function(response) {
+    // do something with response
+    //
+    console.log(JSON.parse(response))
+});
+
+                // var myData = httpGet('https://www.coinexchange.io/api/v1/getmarketsummary?market_id=' + 540)
+
+                // console.log(myData)
 
                 for (var key in dict)
                 {
@@ -206,7 +264,9 @@
                 else {
                     console.log("no have" + data.market_id)
                 }
-            };
+
+            }
+
 
             //document.getElementById("log_div").appendChild(messages)
             //
@@ -214,10 +274,29 @@
             var bal_ws =  new WebSocket("wss://wss.coinexchange.io:3001/balancedata");
 
             md_ws.onopen = function (event) {
+
+                console.log("marketdata: connected")
                 // var market_id = '592';
                 // var json_send = '{ "type": "join_channel", "market_id": "'+market_id+'", "ws_auth_token":"'+ws_auth_token+'" }';
                 // md_ws.send(json_send);
                 // $('.ws-status-icon').html('<img src="/assets/images/connected.png" title="Websockets Status = connected" />');
+            }
+
+            md_ws.onmessage = function(e) {
+
+                console.log("marketdata: ")
+                console.log(e.data)
+            }
+
+            bal_ws.onopen = function(e) {
+
+                console.log("balancedata: connected")
+
+            }
+
+            bal_ws.onmessage = function(e) {
+                console.log("balancedata:")
+                console.log(e.data)
             }
 
         </script>
