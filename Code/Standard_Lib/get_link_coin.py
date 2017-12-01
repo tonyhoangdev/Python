@@ -47,7 +47,7 @@ SetConsoleTextAttribute = windll.kernel32.SetConsoleTextAttribute
 if __name__ == '__main__':
     count = -1
     curr = 0
-    target = 40.0
+    target = 36.0
     set_time_duration = 60
 
     # orders

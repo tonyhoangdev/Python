@@ -71,6 +71,12 @@
                 <td><span id="volume">0</span></td>
                 <td><span id="change">0</span></td>
             </tr>
+            <tr id="id_616">
+                <td><span id="market">GRX/BTC</span></td>
+                <td><span id="price" >0</span></td>
+                <td><span id="volume">0</span></td>
+                <td><span id="change">0</span></td>
+            </tr>
             <tr id="id_433">
                 <td><span id="market">VISIO/BTC</span></td>
                 <td><span id="price" >0</span></td>
@@ -104,13 +110,14 @@
             var ws = new WebSocket("wss://wss.coinexchange.io:3001/sideprices"),
                 messages = document.createElement('ul');
 
-            var markets = [540, 592, 87, 422, 433 ]
+            var markets = [540, 592, 87, 422, 433, 616 ]
             var dict = {
                 "540": "REC/BTC",
                 "592": "BTE/BTC" ,
                 "87": "ETH/BTC" ,
                 "422": "BCH/BTC" ,
-                "433": "VISIO/BTC"
+                "433": "VISIO/BTC",
+                "616": "GRX/BTC"
             };
 
 
