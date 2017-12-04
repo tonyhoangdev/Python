@@ -21,13 +21,13 @@
         }
         </style>
 
-        <script src="https://www.coinexchange.io/js/jquery.color.js"></script>
-        <script src="https://www.coinexchange.io/js/perfect-scrollbar.jquery.js"></script>
+        <script src="./js/jquery.color.js"></script>
+        <script src="./js/perfect-scrollbar.jquery.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="https://www.coinexchange.io/css/animate.css">
+        <link rel="stylesheet" href="./css/animate.css">
 
     </head>
     <body>
@@ -46,42 +46,63 @@
                 <th>Price</th>
                 <th>Volume</th>
                 <th>Change</th>
+                <th>Last Time</th>
             </tr>
             <tr id="id_540">
                 <td><span id="market">REC/BTC</span></td>
                 <td><span id="price" >0</span></td>
                 <td><span id="volume">0</span></td>
                 <td><span id="change">0</span></td>
+                <td><span id="last_time">0</span></td>
             </tr>
             <tr id="id_592">
                 <td><span id="market">BTE/BTC</span></td>
                 <td><span id="price" >0</span></td>
                 <td><span id="volume">0</span></td>
                 <td><span id="change">0</span></td>
+                <td><span id="last_time">0</span></td>
             </tr>
             <tr id="id_87">
                 <td><span id="market">ETH/BTC</span></td>
                 <td><span id="price" >0</span></td>
                 <td><span id="volume">0</span></td>
                 <td><span id="change">0</span></td>
-            </tr>
-            <tr id="id_422">
-                <td><span id="market">BCH/BTC</span></td>
-                <td><span id="price" >0</span></td>
-                <td><span id="volume">0</span></td>
-                <td><span id="change">0</span></td>
+                <td><span id="last_time">0</span></td>
             </tr>
             <tr id="id_616">
                 <td><span id="market">GRX/BTC</span></td>
                 <td><span id="price" >0</span></td>
                 <td><span id="volume">0</span></td>
                 <td><span id="change">0</span></td>
+                <td><span id="last_time">0</span></td>
+            </tr>
+            <tr id="id_621">
+                <td><span id="market">ZCG/BTC</span></td>
+                <td><span id="price" >0</span></td>
+                <td><span id="volume">0</span></td>
+                <td><span id="change">0</span></td>
+                <td><span id="last_time">0</span></td>
+            </tr>
+            <tr id="id_596">
+                <td><span id="market">NEOG/BTC</span></td>
+                <td><span id="price" >0</span></td>
+                <td><span id="volume">0</span></td>
+                <td><span id="change">0</span></td>
+                <td><span id="last_time">0</span></td>
+            </tr>
+            <tr id="id_422">
+                <td><span id="market">BCH/BTC</span></td>
+                <td><span id="price" >0</span></td>
+                <td><span id="volume">0</span></td>
+                <td><span id="change">0</span></td>
+                <td><span id="last_time">0</span></td>
             </tr>
             <tr id="id_433">
                 <td><span id="market">VISIO/BTC</span></td>
                 <td><span id="price" >0</span></td>
                 <td><span id="volume">0</span></td>
                 <td><span id="change">0</span></td>
+                <td><span id="last_time">0</span></td>
             </tr>
         </table>
                 <ul id="log_div" class="list-unstyled">
@@ -110,14 +131,16 @@
             var ws = new WebSocket("wss://wss.coinexchange.io:3001/sideprices"),
                 messages = document.createElement('ul');
 
-            var markets = [540, 592, 87, 422, 433, 616 ]
+            var markets = [540, 592, 87, 422, 433, 616, 621, 596 ]
             var dict = {
                 "540": "REC/BTC",
                 "592": "BTE/BTC" ,
                 "87": "ETH/BTC" ,
                 "422": "BCH/BTC" ,
                 "433": "VISIO/BTC",
-                "616": "GRX/BTC"
+                "616": "GRX/BTC",
+                "621": "ZCG/BTC",
+                "596": "NEOG/BTC"
             };
 
 
@@ -257,8 +280,10 @@ client.get('https://www.coinexchange.io/api/v1/getmarketsummary?market_id=' + 54
                 }
                 $('#'+thediv+' #change').html(data.perc_change+"%");
 
-                    $('#status_last_time').html("Last Time Updated: " + formatDate(new Date()));
+                last_time = formatDate(new Date())
+                $('#status_last_time').html("Last Time Updated: " + last_time);
 
+                $('#' + thediv+' #last_time').html(last_time)
 
                     // var messages = document.getElementsByTagName('ul')[0],
                     //     message = document.createElement('li'),

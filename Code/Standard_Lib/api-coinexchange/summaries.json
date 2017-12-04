@@ -4,16 +4,16 @@
     "message": "",
     "result": {
         "MarketID": "540",
-        "LastPrice": "0.00406215",
-        "Change": "11.94",
-        "HighPrice": "0.00423000",
-        "LowPrice": "0.00360060",
-        "Volume": "261.66101487",
-        "BTCVolume": "261.66101487",
-        "TradeCount": "5922",
-        "BidPrice": "0.00406215",
-        "AskPrice": "0.00406516",
-        "BuyOrderCount": "416",
-        "SellOrderCount": "2284"
+        "LastPrice": "0.00411103",
+        "Change": "-13.42",
+        "HighPrice": "0.00486800",
+        "LowPrice": "0.00400000",
+        "Volume": "270.55570215",
+        "BTCVolume": "270.55570215",
+        "TradeCount": "5418",
+        "BidPrice": "0.00411103",
+        "AskPrice": "0.00415348",
+        "BuyOrderCount": "366",
+        "SellOrderCount": "2006"
     }
 }

@@ -3543,7 +3543,7 @@
             "BaseCurrency": "EthereumClassic",
             "BaseCurrencyCode": "ETC",
             "BaseCurrencyID": "71",
-            "Active": true
+            "Active": false
         },
         {
             "MarketID": "344",
@@ -3686,7 +3686,7 @@
             "BaseCurrency": "EthereumClassic",
             "BaseCurrencyCode": "ETC",
             "BaseCurrencyID": "71",
-            "Active": true
+            "Active": false
         },
         {
             "MarketID": "360",
@@ -3752,7 +3752,7 @@
             "BaseCurrency": "EthereumClassic",
             "BaseCurrencyCode": "ETC",
             "BaseCurrencyID": "71",
-            "Active": true
+            "Active": false
         },
         {
             "MarketID": "364",
@@ -6546,6 +6546,226 @@
             "BaseCurrency": "Bitcoin",
             "BaseCurrencyCode": "BTC",
             "BaseCurrencyID": "1",
+            "Active": true
+        },
+        {
+            "MarketID": "621",
+            "MarketAssetName": "ZCashGold",
+            "MarketAssetCode": "ZCG",
+            "MarketAssetID": "477",
+            "MarketAssetType": "ethereum_asset",
+            "BaseCurrency": "Bitcoin",
+            "BaseCurrencyCode": "BTC",
+            "BaseCurrencyID": "1",
+            "Active": true
+        },
+        {
+            "MarketID": "622",
+            "MarketAssetName": "ZCashGold",
+            "MarketAssetCode": "ZCG",
+            "MarketAssetID": "477",
+            "MarketAssetType": "ethereum_asset",
+            "BaseCurrency": "Ethereum",
+            "BaseCurrencyCode": "ETH",
+            "BaseCurrencyID": "70",
+            "Active": true
+        },
+        {
+            "MarketID": "623",
+            "MarketAssetName": "Stox",
+            "MarketAssetCode": "STX",
+            "MarketAssetID": "478",
+            "MarketAssetType": "ethereum_asset",
+            "BaseCurrency": "Bitcoin",
+            "BaseCurrencyCode": "BTC",
+            "BaseCurrencyID": "1",
+            "Active": true
+        },
+        {
+            "MarketID": "624",
+            "MarketAssetName": "Stox",
+            "MarketAssetCode": "STX",
+            "MarketAssetID": "478",
+            "MarketAssetType": "ethereum_asset",
+            "BaseCurrency": "Ethereum",
+            "BaseCurrencyCode": "ETH",
+            "BaseCurrencyID": "70",
+            "Active": true
+        },
+        {
+            "MarketID": "625",
+            "MarketAssetName": "EthereumBlue",
+            "MarketAssetCode": "BLUE",
+            "MarketAssetID": "479",
+            "MarketAssetType": "ethereum_asset",
+            "BaseCurrency": "Bitcoin",
+            "BaseCurrencyCode": "BTC",
+            "BaseCurrencyID": "1",
+            "Active": true
+        },
+        {
+            "MarketID": "626",
+            "MarketAssetName": "EthereumBlue",
+            "MarketAssetCode": "BLUE",
+            "MarketAssetID": "479",
+            "MarketAssetType": "ethereum_asset",
+            "BaseCurrency": "Ethereum",
+            "BaseCurrencyCode": "ETH",
+            "BaseCurrencyID": "70",
+            "Active": true
+        },
+        {
+            "MarketID": "627",
+            "MarketAssetName": "PlaykeyToken",
+            "MarketAssetCode": "PKT",
+            "MarketAssetID": "480",
+            "MarketAssetType": "ethereum_asset",
+            "BaseCurrency": "Bitcoin",
+            "BaseCurrencyCode": "BTC",
+            "BaseCurrencyID": "1",
+            "Active": true
+        },
+        {
+            "MarketID": "629",
+            "MarketAssetName": "ELTCoin",
+            "MarketAssetCode": "ELT",
+            "MarketAssetID": "481",
+            "MarketAssetType": "ethereum_asset",
+            "BaseCurrency": "Bitcoin",
+            "BaseCurrencyCode": "BTC",
+            "BaseCurrencyID": "1",
+            "Active": true
+        },
+        {
+            "MarketID": "630",
+            "MarketAssetName": "ELTCoin",
+            "MarketAssetCode": "ELT",
+            "MarketAssetID": "481",
+            "MarketAssetType": "ethereum_asset",
+            "BaseCurrency": "Ethereum",
+            "BaseCurrencyCode": "ETH",
+            "BaseCurrencyID": "70",
+            "Active": true
+        },
+        {
+            "MarketID": "631",
+            "MarketAssetName": "PitisCoin",
+            "MarketAssetCode": "PTS",
+            "MarketAssetID": "482",
+            "MarketAssetType": "ethereum_asset",
+            "BaseCurrency": "Bitcoin",
+            "BaseCurrencyCode": "BTC",
+            "BaseCurrencyID": "1",
+            "Active": true
+        },
+        {
+            "MarketID": "632",
+            "MarketAssetName": "SMSCoin",
+            "MarketAssetCode": "SMS",
+            "MarketAssetID": "483",
+            "MarketAssetType": "ethereum_asset",
+            "BaseCurrency": "Bitcoin",
+            "BaseCurrencyCode": "BTC",
+            "BaseCurrencyID": "1",
+            "Active": true
+        },
+        {
+            "MarketID": "633",
+            "MarketAssetName": "SMSCoin",
+            "MarketAssetCode": "SMS",
+            "MarketAssetID": "483",
+            "MarketAssetType": "ethereum_asset",
+            "BaseCurrency": "Ethereum",
+            "BaseCurrencyCode": "ETH",
+            "BaseCurrencyID": "70",
+            "Active": true
+        },
+        {
+            "MarketID": "634",
+            "MarketAssetName": "MIPSToken",
+            "MarketAssetCode": "MIPS",
+            "MarketAssetID": "485",
+            "MarketAssetType": "ethereum_asset",
+            "BaseCurrency": "Bitcoin",
+            "BaseCurrencyCode": "BTC",
+            "BaseCurrencyID": "1",
+            "Active": true
+        },
+        {
+            "MarketID": "635",
+            "MarketAssetName": "BitcoinRed",
+            "MarketAssetCode": "BTCRED",
+            "MarketAssetID": "486",
+            "MarketAssetType": "ethereum_asset",
+            "BaseCurrency": "Bitcoin",
+            "BaseCurrencyCode": "BTC",
+            "BaseCurrencyID": "1",
+            "Active": true
+        },
+        {
+            "MarketID": "636",
+            "MarketAssetName": "ClimateCoin",
+            "MarketAssetCode": "CO2",
+            "MarketAssetID": "487",
+            "MarketAssetType": "ethereum_asset",
+            "BaseCurrency": "Bitcoin",
+            "BaseCurrencyCode": "BTC",
+            "BaseCurrencyID": "1",
+            "Active": true
+        },
+        {
+            "MarketID": "637",
+            "MarketAssetName": "ClimateCoin",
+            "MarketAssetCode": "CO2",
+            "MarketAssetID": "487",
+            "MarketAssetType": "ethereum_asset",
+            "BaseCurrency": "Ethereum",
+            "BaseCurrencyCode": "ETH",
+            "BaseCurrencyID": "70",
+            "Active": true
+        },
+        {
+            "MarketID": "638",
+            "MarketAssetName": "DashGold",
+            "MarketAssetCode": "DAG",
+            "MarketAssetID": "484",
+            "MarketAssetType": "currency",
+            "BaseCurrency": "Bitcoin",
+            "BaseCurrencyCode": "BTC",
+            "BaseCurrencyID": "1",
+            "Active": true
+        },
+        {
+            "MarketID": "639",
+            "MarketAssetName": "DashGold",
+            "MarketAssetCode": "DAG",
+            "MarketAssetID": "484",
+            "MarketAssetType": "currency",
+            "BaseCurrency": "Ethereum",
+            "BaseCurrencyCode": "ETH",
+            "BaseCurrencyID": "70",
+            "Active": true
+        },
+        {
+            "MarketID": "640",
+            "MarketAssetName": "UquidCoin",
+            "MarketAssetCode": "UQC",
+            "MarketAssetID": "488",
+            "MarketAssetType": "ethereum_asset",
+            "BaseCurrency": "Bitcoin",
+            "BaseCurrencyCode": "BTC",
+            "BaseCurrencyID": "1",
+            "Active": true
+        },
+        {
+            "MarketID": "641",
+            "MarketAssetName": "UquidCoin",
+            "MarketAssetCode": "UQC",
+            "MarketAssetID": "488",
+            "MarketAssetType": "ethereum_asset",
+            "BaseCurrency": "Ethereum",
+            "BaseCurrencyCode": "ETH",
+            "BaseCurrencyID": "70",
             "Active": true
         }
     ]
